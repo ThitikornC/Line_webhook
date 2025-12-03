@@ -5,6 +5,11 @@ const PORT = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 
+// Health check endpoint
+app.get('/', (req, res) => {
+    res.send('LINE Webhook Server is running!');
+});
+
 // Webhook endpoint
 app.post('/webhook', (req, res) => {
     console.log('Received webhook: ', req.body);
